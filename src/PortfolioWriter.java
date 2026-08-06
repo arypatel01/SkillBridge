@@ -34,7 +34,8 @@ public class PortfolioWriter {
         bw.newLine();bw.newLine();
         bw.write("  PERFORMANCE SUMMARY");bw.newLine();
         bw.write("  -------------------");bw.newLine();
-        bw.write("  Average Rating    : %.2f / 5.00%n"+ student.getAverageRating());bw.newLine();
+        bw.write(String.format("  Average Rating    : %.2f / 5.00", student.getAverageRating()));
+        bw.newLine();
         bw.write("  Total Sessions    : " + student.getTotalSessions());bw.newLine();
         bw.newLine();bw.newLine();
         bw.write("  ACTIVITY SUMMARY");bw.newLine();

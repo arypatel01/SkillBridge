@@ -82,10 +82,12 @@ class Admin {
             String sql = "SELECT * FROM Students ORDER BY name";
 
             List<Student> students = new ArrayList<>();
+
             Connection conn = DBConnection.getConnection();
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()){
+
+            while (rs.next()) {
                 students.add(new Student(
                         rs.getInt("student_id"),
                         rs.getString("name"),
@@ -96,17 +98,28 @@ class Admin {
                         rs.getInt("total_sessions")
                 ));
             }
-            System.out.printf("\n  %-6s %-20s %-25s %-12s %-8s %-8s%n",
+
+            System.out.println();
+
+            System.out.printf("%-5s %-20s %-30s %-25s %-8s %-8s%n",
                     "ID", "Name", "Email", "Branch", "Rating", "Sessions");
-            System.out.println("  " + "---------------------------------------------------------------------------------------------------------");
+
+            System.out.println("---------------------------------------------------------------------------------------------------------------");
+
             for (Student s : students) {
-                System.out.printf("  %-6d %-20s %-25s %-12s %-8.2f %-8d%n",
-                        s.getStudentId(), s.getName(), s.getEmail(),
-                        s.getBranch(), s.getAverageRating(), s.getTotalSessions());
-           }
+                System.out.printf("%-5d %-20s %-30s %-25s %-8.2f %-8d%n",
+                        s.getStudentId(),
+                        s.getName(),
+                        s.getEmail(),
+                        s.getBranch(),
+                        s.getAverageRating(),
+                        s.getTotalSessions());
+            }
+
         } catch (SQLException e) {
-           System.out.println("Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
+
         System.out.print("\nPress Enter...");
         InputUtil.getScanner().nextLine();
     }
@@ -384,15 +397,18 @@ class Admin {
     // ============================
 
     private void viewLeaderboard() {
-        System.out.println("\n  ========== LEADERBOARD - TOP STUDENTS ==========");
+        System.out.println("\n========== LEADERBOARD - TOP STUDENTS ==========\n");
+
         try {
             String sql = "{call TopStudents()}";
 
             List<Student> students = new ArrayList<>();
+
             Connection conn = DBConnection.getConnection();
             CallableStatement cst = conn.prepareCall(sql);
             ResultSet rs = cst.executeQuery();
-            while (rs.next()){
+
+            while (rs.next()) {
                 students.add(new Student(
                         rs.getInt("student_id"),
                         rs.getString("name"),
@@ -403,22 +419,32 @@ class Admin {
                         rs.getInt("total_sessions")
                 ));
             }
+
             if (students.isEmpty()) {
                 System.out.println("No data yet.");
                 return;
             }
-            System.out.printf("  %-4s %-20s %-10s %-8s %-8s%n",
+
+            System.out.printf("%-6s %-20s %-25s %-8s %-8s%n",
                     "Rank", "Name", "Branch", "Rating", "Sessions");
-            System.out.println("  " + "-".repeat(54));
+
+            System.out.println("-----------------------------------------------------------------------");
+
             int rank = 1;
+
             for (Student s : students) {
-                System.out.printf("  %-4d %-20s %-10s %-8.2f %-8d%n",
-                        rank++, s.getName(), s.getBranch(),
-                        s.getAverageRating(), s.getTotalSessions());
+                System.out.printf("%-6d %-20s %-25s %-8.2f %-8d%n",
+                        rank++,
+                        s.getName(),
+                        s.getBranch(),
+                        s.getAverageRating(),
+                        s.getTotalSessions());
             }
+
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
+
         System.out.print("\nPress Enter...");
         InputUtil.getScanner().nextLine();
     }
