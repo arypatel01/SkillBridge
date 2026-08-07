@@ -115,9 +115,11 @@ public class Student {
                 case 7 -> {
 
                     System.out.println("\nLogged Out Successfully.");
+                    historyService.logEvent("Student '" + Menu.loggedInStudent.getName() + "' logged out.");
 
                     Menu.loggedInStudent = null;
                     Menu.currentStudentId = -1;
+
 
                     return;
                 }
@@ -261,7 +263,7 @@ public class Student {
                             """);
 
                         int ch = InputUtil.readInt("Enter choice : ");
-                        InputUtil.getScanner().nextLine();
+//                        InputUtil.getScanner().nextLine();
 
                         switch (ch) {
 

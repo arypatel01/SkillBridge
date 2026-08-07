@@ -38,7 +38,6 @@ public class Menu {
                     if(obj.handleStudentLogin()){
                         historyService.logEvent("Student '" + loggedInStudent.getName() + "' logged in.");
                         loggedInStudent.studentPortal(loggedInStudent,historyService);
-//                        historyService.logEvent("Student '" + loggedInStudent.getName() + "' logged out.");
                     }
                 }
                 case 3 ->{

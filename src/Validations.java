@@ -11,34 +11,76 @@ class Validations{
             return false;
         }
 
-        int atIndex = email.indexOf('@');
-        int lastAtIndex = email.lastIndexOf('@');
-
-        // There should be exactly one '@'
-        if (atIndex == -1 || atIndex != lastAtIndex) {
+        // Reject leading or trailing spaces
+        if (!email.equals(email.trim())) {
             return false;
         }
 
-        // '@' should not be the first or last character
+        // Reject any whitespace anywhere
+        for (int i = 0; i < email.length(); i++) {
+            if (Character.isWhitespace(email.charAt(i))) {
+                return false;
+            }
+        }
+
+        // Exactly one '@'
+        int atIndex = email.indexOf('@');
+
+        if (atIndex == -1 || atIndex != email.lastIndexOf('@')) {
+            return false;
+        }
+
+        // '@' cannot be first or last
         if (atIndex == 0 || atIndex == email.length() - 1) {
             return false;
         }
 
-        // Find '.' after '@'
-        int dotIndex = email.indexOf('.', atIndex);
+        String localPart = email.substring(0, atIndex);
+        String domainPart = email.substring(atIndex + 1);
 
-        // '.' must exist after '@'
+        // Local or domain cannot start/end with '.'
+        if (localPart.startsWith(".")
+                || localPart.endsWith(".")
+                || domainPart.startsWith(".")
+                || domainPart.endsWith(".")) {
+            return false;
+        }
+
+        // No consecutive dots
+        if (email.contains("..")) {
+            return false;
+        }
+
+        // Domain must contain a dot
+        int dotIndex = domainPart.lastIndexOf('.');
+
         if (dotIndex == -1) {
             return false;
         }
 
-        // '.' should not be immediately after '@'
-        if (dotIndex == atIndex + 1) {
+        // Dot cannot be the first character of domain
+        if (dotIndex == 0) {
             return false;
         }
 
-        // At least 2 characters after '.'
-        if (dotIndex >= email.length() - 2) {
+        // At least 2 characters after the last dot
+        if (domainPart.length() - dotIndex - 1 < 2) {
+            return false;
+        }
+
+        // Allow only valid characters
+        for (int i = 0; i < email.length(); i++) {
+
+            char ch = email.charAt(i);
+
+            if (Character.isLetterOrDigit(ch)
+                    || ch == '@'
+                    || ch == '.'
+                    || ch == '_'
+                    || ch == '-') {
+                continue;
+            }
+
             return false;
         }
 

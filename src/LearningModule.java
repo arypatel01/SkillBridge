@@ -13,7 +13,10 @@ class LearningModule{
 
         Connection connection = DBConnection.getConnection();
 
-        viewLearningRequests();
+        if (!viewLearningRequests()) {
+            connection.close();
+            return;
+        }
 
         System.out.println("\n========== ACCEPT LEARNING REQUEST ==========");
 
@@ -80,17 +83,28 @@ class LearningModule{
                 String input = InputUtil.readString("");
 
                 LocalDate enteredDate = LocalDate.parse(input);
+
                 LocalDate today = LocalDate.now();
 
-                if (enteredDate.isAfter(today)) {
+                LocalDate lastAllowedDate = today.plusDays(30);
+
+                if (!enteredDate.isAfter(today)) {
+
+                    System.out.println("Meeting date must be after today.");
+
+                } else if (enteredDate.isAfter(lastAllowedDate)) {
+
+                    System.out.println("Meeting date cannot be more than 30 days from today.");
+
+                } else {
+
                     meetingDate = Date.valueOf(enteredDate);
                     break;
-                } else {
-                    System.out.println("Date must be in the future.");
                 }
 
             } catch (DateTimeParseException e) {
-                System.out.println("Invalid Date Format.");
+
+                System.out.println("Invalid Date Format. Use YYYY-MM-DD.");
             }
         }
 
@@ -102,16 +116,38 @@ class LearningModule{
 
             try {
 
-                String input = InputUtil.readString("");
+                String input = InputUtil.readString("").trim();
 
-                // Convert HH:MM to HH:MM:SS
-                meetingTime = Time.valueOf(input + ":00");
+                String[] parts = input.split(":");
+
+                if (parts.length != 2) {
+
+                    System.out.println("Invalid Time Format.");
+                    continue;
+                }
+
+                int hour = Integer.parseInt(parts[0]);
+                int minute = Integer.parseInt(parts[1]);
+
+                if (hour < 0 || hour > 23) {
+
+                    System.out.println("Hour must be between 00 and 23.");
+                    continue;
+                }
+
+                if (minute < 0 || minute > 59) {
+
+                    System.out.println("Minutes must be between 00 and 59.");
+                    continue;
+                }
+
+                meetingTime = Time.valueOf(
+                        String.format("%02d:%02d:00", hour, minute));
 
                 break;
 
-            } catch (IllegalArgumentException e) {
-
-                System.out.println("Invalid Time Format. Please enter time in HH:MM format.");
+            } catch (Exception e) {
+                System.out.println("Invalid Time Format. Use HH:MM.");
             }
         }
 
@@ -359,25 +395,25 @@ class LearningModule{
         }
     }
 
-    void viewLearningRequests() throws SQLException {
+    boolean viewLearningRequests() throws SQLException {
 
         Connection connection = DBConnection.getConnection();
 
         String query = """
-            SELECT
-                lr.request_id,
-                s.name,
-                s.branch,
-                lr.skill_needed,
-                lr.description,
-                lr.created_at
-            FROM LearningRequests lr
-            JOIN Students s
-            ON lr.student_id = s.student_id
-            WHERE lr.status='Pending'
-            AND lr.student_id<>?
-            ORDER BY lr.created_at DESC
-            """;
+        SELECT
+            lr.request_id,
+            s.name,
+            s.branch,
+            lr.skill_needed,
+            lr.description,
+            lr.created_at
+        FROM LearningRequests lr
+        JOIN Students s
+        ON lr.student_id = s.student_id
+        WHERE lr.status = 'Pending'
+        AND lr.student_id <> ?
+        ORDER BY lr.created_at DESC
+        """;
 
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -408,6 +444,8 @@ class LearningModule{
         rs.close();
         ps.close();
         connection.close();
+
+        return found;
     }
 
     void pendingConfirmations() throws SQLException {

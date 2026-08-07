@@ -460,37 +460,37 @@ class QuestionAnswerForum{
         connection.close();
     }
 
-    void myQuestions() throws SQLException {
+    boolean myQuestions() throws SQLException {
 
         Connection connection = DBConnection.getConnection();
 
         String query = """
-            SELECT
-                q.question_id,
-                q.title,
-                q.body,
-                q.created_at AS question_time,
+        SELECT
+            q.question_id,
+            q.title,
+            q.body,
+            q.created_at AS question_time,
 
-                a.answer_id,
-                a.answer_text,
-                a.created_at AS answer_time,
+            a.answer_id,
+            a.answer_text,
+            a.created_at AS answer_time,
 
-                s.name AS answered_by
+            s.name AS answered_by
 
-            FROM Questions q
+        FROM Questions q
 
-            LEFT JOIN Answers a
-            ON q.question_id = a.question_id
+        LEFT JOIN Answers a
+        ON q.question_id = a.question_id
 
-            LEFT JOIN Students s
-            ON a.answered_by_student_id = s.student_id
+        LEFT JOIN Students s
+        ON a.answered_by_student_id = s.student_id
 
-            WHERE q.asked_by_student_id = ?
+        WHERE q.asked_by_student_id = ?
 
-            ORDER BY
-                q.question_id,
-                a.created_at;
-            """;
+        ORDER BY
+            q.question_id,
+            a.created_at;
+        """;
 
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -535,14 +535,9 @@ class QuestionAnswerForum{
 
                 System.out.println(answerCount + ".");
 
-                System.out.println("Answered By : "
-                        + rs.getString("answered_by"));
-
-                System.out.println("Answer      : "
-                        + rs.getString("answer_text"));
-
-                System.out.println("Answered On : "
-                        + rs.getTimestamp("answer_time"));
+                System.out.println("Answered By : " + rs.getString("answered_by"));
+                System.out.println("Answer      : " + rs.getString("answer_text"));
+                System.out.println("Answered On : " + rs.getTimestamp("answer_time"));
 
                 System.out.println("------------------------------------------");
 
@@ -562,6 +557,8 @@ class QuestionAnswerForum{
         rs.close();
         ps.close();
         connection.close();
+
+        return hasQuestion;
     }
 
     void deleteMyQuestion() throws SQLException {
@@ -570,7 +567,11 @@ class QuestionAnswerForum{
 
         connection.setAutoCommit(false);
 
-        myQuestions();
+        // If no questions exist, stop here.
+        if (!myQuestions()) {
+            connection.close();
+            return;
+        }
 
         System.out.println("\n============== DELETE MY QUESTION ==============\n");
 
@@ -582,14 +583,13 @@ class QuestionAnswerForum{
             System.out.print("Enter Question ID : ");
 
             questionId = InputUtil.readInt("");
-            InputUtil.getScanner().nextLine();
 
             PreparedStatement check = connection.prepareStatement("""
-                SELECT title
-                FROM Questions
-                WHERE question_id = ?
-                AND asked_by_student_id = ?
-                """);
+            SELECT title
+            FROM Questions
+            WHERE question_id = ?
+            AND asked_by_student_id = ?
+            """);
 
             check.setInt(1, questionId);
             check.setInt(2, Menu.loggedInStudent.getStudentId());
@@ -613,7 +613,8 @@ class QuestionAnswerForum{
 
         while (true) {
 
-            String choice = InputUtil.readString("Are you sure you want to delete this question? (Y/N) : ");
+            String choice = InputUtil.readString(
+                    "Are you sure you want to delete this question? (Y/N) : ");
 
             if (choice.equalsIgnoreCase("Y")) {
                 break;
@@ -634,9 +635,9 @@ class QuestionAnswerForum{
         try {
 
             PreparedStatement deleteQuestion = connection.prepareStatement("""
-                DELETE FROM Questions
-                WHERE question_id = ?
-                """);
+            DELETE FROM Questions
+            WHERE question_id = ?
+            """);
 
             deleteQuestion.setInt(1, questionId);
 
@@ -655,9 +656,9 @@ class QuestionAnswerForum{
             }
 
             PreparedStatement history = connection.prepareStatement("""
-                INSERT INTO request_history(event_description)
-                VALUES(?)
-                """);
+            INSERT INTO request_history(event_description)
+            VALUES(?)
+            """);
 
             history.setString(1,
                     Menu.loggedInStudent.getName()
@@ -690,7 +691,10 @@ class QuestionAnswerForum{
         } finally {
 
             connection.setAutoCommit(true);
-            connection.close();
+
+            if (!connection.isClosed()) {
+                connection.close();
+            }
         }
     }
 }
