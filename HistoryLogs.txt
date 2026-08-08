@@ -2,37 +2,105 @@
            SKILLBRIDGE - ADMIN HISTORY LOGS                
 ============================================================
 
-  Total Events: 28
+  Total Events: 96
 
-1. [2026-08-06 18:44:38] Admin logged in.
-2. [2026-08-06 18:41:00] [2026-08-06 18:41:00] Admin logged in.
-3. [2026-08-06 18:38:42] [2026-08-06 18:38:42] Admin logged out.
-4. [2026-08-06 18:13:13] [2026-08-06 18:13:13] Admin deleted question #7
-5. [2026-08-06 18:06:02] [2026-08-06 18:06:02] Admin logged in.
-6. [2026-07-31 10:50:31] [2026-07-31 10:50:31] Admin deleted learning request #10
-7. [2026-07-31 09:51:34] Aryan Patel (Student ID : 11) deleted Question ID 10 : What is react?
-8. [2026-07-31 09:40:43] Ratan Patel (Student ID : 12) answered Question ID 10 : What is react?
-9. [2026-07-31 09:37:39] Aryan Patel (Student ID : 11) asked a question. Title : "What is react?"
-10. [2026-07-13 21:32:46] Aryan Patel (Student ID : 11) rated Ratan Patel (Teacher ID : 12) 4/5 for session "java".
-11. [2026-07-13 21:30:51] Learning Session ID 10 for skill java completed successfully. Teacher : Ratan Patel (Student ID : 12). Marked as completed by Ratan Patel (Student ID : 12).
-12. [2026-07-13 18:39:00] Aryan Patel (Student ID : 11) confirmed Learning Session ID 10 with Ratan Patel (Teacher ID : 12) for skill java.
-13. [2026-07-13 18:30:43] Ratan Patel (Student ID : 12) accepted Learning Request ID 11 for skill "java". Meeting Date : 2026-07-14, Time : 10:00:00, Location : Tea Post. Waiting for learner confirmation.
-14. [2026-07-13 17:25:39] Aryan Patel (Student ID : 11) created a learning request for "java".
-15. [2026-07-12 22:11:22] Aryan Patel (Student ID : 11) deleted Question ID 9 : Why i need to learn React?
-16. [2026-07-12 22:06:31] Ratan Patel (Student ID : 12) answered Question ID 9 : Why i need to learn React?
-17. [2026-07-12 21:45:41] Aryan Patel (Student ID : 11) asked a question. Title : "Why i need to learn React?"
-18. [2026-07-12 18:32:00] Aryan Patel (Student ID : 11) answered Question ID 6 : How HashMap Works?
-19. [2026-07-11 21:48:01] Aryan created Java learning request
-20. [2026-07-11 21:48:01] Rahul accepted Aryan request
-21. [2026-07-11 21:48:01] Session scheduled between Priya and Neha
-22. [2026-07-11 21:48:01] DBMS session completed
-23. [2026-07-11 21:48:01] Rating submitted for Java session
-24. [2026-07-11 21:48:01] React request created
-25. [2026-07-11 21:48:01] JavaScript request cancelled
-26. [2026-07-11 21:48:01] Networking session scheduled
-27. [2026-07-11 21:48:01] Best answer selected for JDBC question
-28. [2026-07-11 21:48:01] Machine Learning session confirmed
+1. [2026-08-08 09:46:24] Admin logged in.
+2. [2026-08-08 09:08:54] [2026-08-08 09:08:54] Student 'Aryan Patel' logged in.
+3. [2026-08-07 22:46:26] [2026-08-07 22:46:26] Student 'Aryan Patel' logged out.
+4. [2026-08-07 22:46:11] [2026-08-07 22:46:11] Student 'Aryan Patel' logged in.
+5. [2026-08-07 22:45:35] [2026-08-07 22:45:35] Student 'Kevin PAtel' logged out.
+6. [2026-08-07 22:45:23] [2026-08-07 22:45:23] Student Kevin PAtel rated Aryan Patel5/5 for session "DBMS".
+7. [2026-08-07 22:45:12] [2026-08-07 22:45:12] Student 'Kevin PAtel' logged in.
+8. [2026-08-07 22:43:19] [2026-08-07 22:43:19] Student 'Kevin PAtel' logged in.
+9. [2026-08-07 22:30:18] [2026-08-07 22:30:18] Student 'Kevin PAtel' logged in.
+10. [2026-08-07 22:30:04] [2026-08-07 22:30:04] Student 'Aryan Patel' logged out.
+11. [2026-08-07 22:29:31] [2026-08-07 22:29:31] Session 11 for skill DBMS completed successfully. Teacher : Aryan Patel. Marked as completed by Aryan Patel
+12. [2026-08-07 22:29:17] [2026-08-07 22:29:17] Student 'Aryan Patel' logged in.
+13. [2026-08-07 22:29:06] [2026-08-07 22:29:06] Student 'Kevin PAtel' logged out.
+14. [2026-08-07 22:28:43] [2026-08-07 22:28:43] Student 'Kevin PAtel' confirmed session #11 with Aryan Patel for skill DBMS.
+15. [2026-08-07 22:27:40] [2026-08-07 22:27:40] Student 'Kevin PAtel' logged in.
+16. [2026-08-07 22:27:28] [2026-08-07 22:27:28] Student 'Ratan Patel' logged out.
+17. [2026-08-07 22:25:47] [2026-08-07 22:25:47] Student 'Ratan Patel' logged in.
+18. [2026-08-07 22:25:34] [2026-08-07 22:25:34] Student 'Aryan Patel' logged out.
+19. [2026-08-07 22:25:30] [2026-08-07 22:25:30] Student 'Aryan Patel' logged in.
+20. [2026-08-07 22:24:04] [2026-08-07 22:24:03] Student 'Aryan Patel' logged out.
+21. [2026-08-07 22:23:55] [2026-08-07 22:23:55] Student 'Aryan Patel' updated their profile.
+22. [2026-08-07 22:23:32] Ary Patel (Student ID : 11) deleted Question ID 15 : hey what's Up
+23. [2026-08-07 22:23:04] Ary Patel (Student ID : 11) answered Question ID 5 : What is React Hook?
+24. [2026-08-07 22:23:04] [2026-08-07 22:23:04] Student 'Ary Patel' answered question #5
+25. [2026-08-07 22:22:14] [2026-08-07 22:22:14] Student 'Ary Patel' asked a question: hey what's Up
+26. [2026-08-07 22:21:35] [2026-08-07 22:21:35] Student Ary Patel deleted Learning Request ID 14 for skill "Java".
+27. [2026-08-07 22:21:07] [2026-08-07 22:21:07] Student 'Ary Patel' accepted request #13 for skill: DBMS
+28. [2026-08-07 22:18:27] [2026-08-07 22:18:27] Student 'Ary Patel' created a request for skill: Java
+29. [2026-08-07 22:17:11] [2026-08-07 22:17:11] Student 'Ary Patel' updated their profile.
+30. [2026-08-07 22:16:51] [2026-08-07 22:16:51] Student 'Ary Patel' updated their profile.
+31. [2026-08-07 22:16:12] [2026-08-07 22:16:12] Student 'Aryan Patel' logged in.
+32. [2026-08-07 22:15:31] [2026-08-07 22:15:31] Admin logged out.
+33. [2026-08-07 22:15:21] [2026-08-07 22:15:21] Admin deleted question #6
+34. [2026-08-07 22:14:25] [2026-08-07 22:14:25] Admin deleted student #2
+35. [2026-08-07 22:12:16] [2026-08-07 22:12:16] Admin logged in.
+36. [2026-08-07 18:04:57] Aryan Patel (Student ID : 11) deleted Question ID 14 : Hey i Want to Know about java ?
+37. [2026-08-07 18:04:35] [2026-08-07 18:04:35] Student 'Aryan Patel' asked a question: Hey i Want to Know about java ?
+38. [2026-08-07 18:03:03] [2026-08-07 18:03:03] Student 'Aryan Patel' logged in.
+39. [2026-08-07 17:51:04] Aryan Patel (Student ID : 11) deleted Question ID 12 : How to learn JavaScript fast?
+40. [2026-08-07 17:49:43] [2026-08-07 17:49:43] Student 'Aryan Patel' logged in.
+41. [2026-08-06 22:38:40] [2026-08-06 22:38:40] Student 'Aryan Patel' logged in.
+42. [2026-08-06 22:35:21] [2026-08-06 22:35:21] Admin logged in.
+43. [2026-08-06 22:34:05] [2026-08-06 22:34:05] Admin logged in.
+44. [2026-08-06 22:27:10] [2026-08-06 22:27:10] Admin logged in.
+45. [2026-08-06 22:24:36] [2026-08-06 22:24:36] Admin logged in.
+46. [2026-08-06 22:20:48] [2026-08-06 22:20:48] Student 'Aryan Patel' logged in.
+47. [2026-08-06 22:20:31] [2026-08-06 22:20:31] Admin logged out.
+48. [2026-08-06 22:20:08] [2026-08-06 22:20:08] Admin logged in.
+49. [2026-08-06 21:27:57] [2026-08-06 21:27:57] Student 'Ratan Patel' logged in.
+50. [2026-08-06 21:26:03] [2026-08-06 21:26:03] Student 'Ratan Patel' asked a question: which free resourses i need to follow for React?
+51. [2026-08-06 21:24:39] [2026-08-06 21:24:39] Student 'Ratan Patel' logged in.
+52. [2026-08-06 21:11:44] [2026-08-06 21:11:44] Student 'Aryan Patel' asked a question: How to learn JavaScript fast?
+53. [2026-08-06 21:10:25] [2026-08-06 21:10:25] Student 'Aryan Patel' logged in.
+54. [2026-08-06 21:07:59] Kevin PAtel (Student ID : 13) answered Question ID 5 : What is React Hook?
+55. [2026-08-06 21:07:59] [2026-08-06 21:07:59] Student 'Kevin PAtel' answered question #5
+56. [2026-08-06 21:05:42] [2026-08-06 21:05:42] Student 'Kevin PAtel' asked a question: What is Anguler?
+57. [2026-08-06 21:02:20] [2026-08-06 21:02:20] Student 'Kevin PAtel' created a request for skill: DBMS
+58. [2026-08-06 21:00:27] [2026-08-06 21:00:27] Student Kevin PAtel deleted Learning Request ID 12 for skill "Java".
+59. [2026-08-06 20:58:59] [2026-08-06 20:58:59] Student 'Kevin PAtel' created a request for skill: Java
+60. [2026-08-06 20:57:54] [2026-08-06 20:57:54] Student 'Kevin PAtel' logged in.
+61. [2026-08-06 19:28:55] [2026-08-06 19:28:55] Student 'Kevin PAtel' updated their profile.
+62. [2026-08-06 19:28:42] [2026-08-06 19:28:42] Student 'Kevin PAtel' updated their profile.
+63. [2026-08-06 19:28:25] [2026-08-06 19:28:25] Student 'Mahil Patel' logged in.
+64. [2026-08-06 19:26:12] [2026-08-06 19:26:12] Student 'Mahil Patel' updated their profile.
+65. [2026-08-06 19:25:46] [2026-08-06 19:25:46] Student 'Mahil Patel' logged in.
+66. [2026-08-06 19:20:24] [2026-08-06 19:20:24] Student 'Mahil Patel' logged in.
+67. [2026-08-06 18:54:42] [2026-08-06 18:54:42] New student registered: Mahil Patel
+68. [2026-08-06 18:46:15] [2026-08-06 18:46:15] Admin logged in.
+69. [2026-08-06 18:44:38] [2026-08-06 18:44:38] Admin logged in.
+70. [2026-08-06 18:41:00] [2026-08-06 18:41:00] Admin logged in.
+71. [2026-08-06 18:38:42] [2026-08-06 18:38:42] Admin logged out.
+72. [2026-08-06 18:13:13] [2026-08-06 18:13:13] Admin deleted question #7
+73. [2026-08-06 18:06:02] [2026-08-06 18:06:02] Admin logged in.
+74. [2026-07-31 10:50:31] [2026-07-31 10:50:31] Admin deleted learning request #10
+75. [2026-07-31 09:51:34] Aryan Patel (Student ID : 11) deleted Question ID 10 : What is react?
+76. [2026-07-31 09:40:43] Ratan Patel (Student ID : 12) answered Question ID 10 : What is react?
+77. [2026-07-31 09:37:39] Aryan Patel (Student ID : 11) asked a question. Title : "What is react?"
+78. [2026-07-13 21:32:46] Aryan Patel (Student ID : 11) rated Ratan Patel (Teacher ID : 12) 4/5 for session "java".
+79. [2026-07-13 21:30:51] Learning Session ID 10 for skill java completed successfully. Teacher : Ratan Patel (Student ID : 12). Marked as completed by Ratan Patel (Student ID : 12).
+80. [2026-07-13 18:39:00] Aryan Patel (Student ID : 11) confirmed Learning Session ID 10 with Ratan Patel (Teacher ID : 12) for skill java.
+81. [2026-07-13 18:30:43] Ratan Patel (Student ID : 12) accepted Learning Request ID 11 for skill "java". Meeting Date : 2026-07-14, Time : 10:00:00, Location : Tea Post. Waiting for learner confirmation.
+82. [2026-07-13 17:25:39] Aryan Patel (Student ID : 11) created a learning request for "java".
+83. [2026-07-12 22:11:22] Aryan Patel (Student ID : 11) deleted Question ID 9 : Why i need to learn React?
+84. [2026-07-12 22:06:31] Ratan Patel (Student ID : 12) answered Question ID 9 : Why i need to learn React?
+85. [2026-07-12 21:45:41] Aryan Patel (Student ID : 11) asked a question. Title : "Why i need to learn React?"
+86. [2026-07-12 18:32:00] Aryan Patel (Student ID : 11) answered Question ID 6 : How HashMap Works?
+87. [2026-07-11 21:48:01] Aryan created Java learning request
+88. [2026-07-11 21:48:01] Rahul accepted Aryan request
+89. [2026-07-11 21:48:01] Session scheduled between Priya and Neha
+90. [2026-07-11 21:48:01] DBMS session completed
+91. [2026-07-11 21:48:01] Rating submitted for Java session
+92. [2026-07-11 21:48:01] React request created
+93. [2026-07-11 21:48:01] JavaScript request cancelled
+94. [2026-07-11 21:48:01] Networking session scheduled
+95. [2026-07-11 21:48:01] Best answer selected for JDBC question
+96. [2026-07-11 21:48:01] Machine Learning session confirmed
 
 ============================================================
-  Generated On: 2026-08-06 18:44:50
+  Generated On: 2026-08-08 09:46:53
 ============================================================

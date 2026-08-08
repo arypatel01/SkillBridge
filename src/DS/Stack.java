@@ -1,7 +1,6 @@
 package DS;
+import DS.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Stack {
     class StackNode {
@@ -67,8 +66,8 @@ public class Stack {
         return size;
     }
 
-    public List<String> displayAll() {
-        List<String> events = new ArrayList<>();
+    public ArrayList<String> displayAll() {
+        ArrayList<String> events = new ArrayList<>();
 
         // Traverse from top to bottom
         StackNode current = top;

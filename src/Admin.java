@@ -2,9 +2,8 @@ import Util.InputUtil;
 import Database.DBConnection;
 
 import java.io.IOException;
+import DS.ArrayList;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 class Admin {
 
@@ -81,7 +80,7 @@ class Admin {
         try {
             String sql = "SELECT * FROM Students ORDER BY name";
 
-            List<Student> students = new ArrayList<>();
+            ArrayList<Student> students = new ArrayList<>();
 
             Connection conn = DBConnection.getConnection();
             Statement st = conn.createStatement();
@@ -127,11 +126,6 @@ class Admin {
     private void deleteStudent() {
         System.out.print("Enter Student ID to delete : ");
         int id = InputUtil.readInt("  ");
-        String confirm = InputUtil.readString("Confirm delete student #" + id + "? (yes/no): ");
-        if (!confirm.equalsIgnoreCase("yes")) {
-            System.out.println("Cancelled.");
-            return;
-        }
         try {
             String sql = "DELETE FROM Students WHERE student_id = ?";
 
@@ -402,7 +396,7 @@ class Admin {
         try {
             String sql = "{call TopStudents()}";
 
-            List<Student> students = new ArrayList<>();
+            ArrayList<Student> students = new ArrayList<>();
 
             Connection conn = DBConnection.getConnection();
             CallableStatement cst = conn.prepareCall(sql);
@@ -478,7 +472,7 @@ class Admin {
     /** Displays all stack events (newest first - LIFO order). */
     private void displayAllLogs() {
         System.out.println("\n  ---- ALL HISTORY EVENTS (Newest First) ----");
-        List<String> events = historyService.getAllEvents();
+        ArrayList<String> events = historyService.getAllEvents();
 
         if (events.isEmpty()) {
             System.out.println("No events recorded yet.");

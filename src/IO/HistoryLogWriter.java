@@ -1,6 +1,7 @@
 package IO;
 
 import DS.Stack;
+import DS.ArrayList;
 import Util.DateUtil;
 
 import java.io.*;
@@ -27,7 +28,7 @@ public class HistoryLogWriter {
         bw.newLine();
 
         // Get all events from stack (newest first)
-        List<String> events = stack.displayAll();
+        ArrayList<String> events = stack.displayAll();
 
         if (events.isEmpty()) {
             bw.write("  No history events recorded yet.");

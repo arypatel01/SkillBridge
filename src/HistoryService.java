@@ -1,12 +1,12 @@
 import DS.Stack;
+import DS.*;
 import Database.DBConnection;
 import Util.DateUtil;
 import IO.HistoryLogWriter;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class HistoryService {
     private final Stack historyStack;
@@ -31,7 +31,7 @@ public class HistoryService {
         }
     }
 
-    public List<String> getAllEvents() {
+    public ArrayList<String> getAllEvents() {
         return historyStack.displayAll();
     }
 
@@ -48,7 +48,7 @@ public class HistoryService {
         try {
             String sql = "SELECT event_description, created_at FROM request_history ORDER BY created_at DESC";
 
-            List<String> logs = new ArrayList<>();
+            ArrayList<String> logs = new ArrayList<>();
             Connection con = DBConnection.getConnection();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
